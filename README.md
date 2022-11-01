@@ -1,21 +1,31 @@
-# Terminus Lapp Template
+# Create LN App
 Built with ❤️ ☕️ & ₿ in ATL by the team at [Terminus Electric Money Lab](https://terminus.money/).
 
-# Purpose
-The Lapp (Lightning app) Template is meant to simplify the local dev env setup, so lightning app
-developers can stop fussing with the dev tooling and start building the future of online commerce!
+## 🧐 What?
+LN-App: aka LNapp, Lapp, Lightning app, Lightning Network App; in contract to a "dApp."
+The idea of the LNapp is to reclaim the use of the common term "dApp" but reframe it around what
+we think is the future of "decentralized applications."
 
-# Steps: Easy as 1-2-3
-1. `git clone https://github.com/terminus-btc/Lapp-template.git && cd Lapp-template`
+The term "dApp" was popularized by the web 3.0 / defi / crypto community. Much like the term
+"web 3.0", the term "dApp" has been overused: clouding its meaning. We are attempting to replace the
+term "dApp" with "Lapp" or "LNapp" because we fundamentally believe the Bitcoin Lightning Network will
+be the future of online, decentralized payments thus, becoming the default currency / payments network for the globe.
+
+## 🧐 Why?
+LN-Apps, or Lightning Network apps, are software applications that leverage the lightning network for some part of its functionality such as lightning invoices, streaming payments, managing node infrastructure and/or liquidity, etc. The list goes on! The create-ligthning-app repo is meant to simplify the local dev env setup, so LNapp developers can stop fussing with the dev tooling and start building the future of online commerce!
+
+## 🧐 How?
+Setup is easy as 1-2-3!
+
+1. `git clone https://github.com/terminus-btc/create-LNapp.git && cd Lapp-template`
 2. `npm run install:all`
 3. `npm start`
 
-# Usage
 We recommend using this template as a starting point for your local lightnig development env.
 Over time, we plan to evolve this template to include more customizations and features for advanced
 developers.
 
-# Important Information
+## Important Information
 - LND REST Endpoints
   1. alice: `https://127.0.0.1:8081/v1`
   2. bob: `https://127.0.0.1:8082/v1`
