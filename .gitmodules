@@ -1,0 +1,12 @@
+[submodule "backend/source/bitcoin"]
+	path = backend/source/bitcoin
+	url = git@github.com:bitcoin/bitcoin.git
+[submodule "backend/source/lnd"]
+	path = backend/source/lnd
+	url = https://github.com/lightningnetwork/lnd
+[submodule "backend/source/cln"]
+	path = backend/source/cln
+	url = git@github.com:ElementsProject/lightning.git
+[submodule "backend/source/eclair"]
+	path = backend/source/eclair
+	url = git@github.com:ACINQ/eclair.git

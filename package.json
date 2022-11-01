@@ -1,0 +1,16 @@
+{
+  "name": "lapp-template",
+  "version": "0.1.0",
+  "private": false,
+  "scripts": {
+    "start": "concurrently npm:watch:*",
+    "watch:frontend": "cd frontend && npm start",
+    "watch:backend": "cd backend/docker/compose && docker-compose up",
+    "start:backend:polar": "open -a Polar",
+    "start:backend:compose": "cd backend/docker/compose && docker-compose up",
+    "start:backend:export": "cd backend/docker/export && unzip && docker-compose up"
+  },
+  "devDependencies": {
+    "concurrently": "^7.5.0"
+  }
+}
