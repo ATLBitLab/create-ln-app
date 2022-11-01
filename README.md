@@ -1,5 +1,5 @@
 # Terminus Lapp Template
-Built with ❤️ ☕️ & ₿ by the team at [Terminus Electric Money Lab](https://terminus.money/)
+Built with ❤️ ☕️ & ₿ in ATL by the team at [Terminus Electric Money Lab](https://terminus.money/).
 
 # Purpose
 The Lapp (Lightning app) Template is meant to simplify the local dev env setup, so lightning app
@@ -7,7 +7,7 @@ developers can stop fussing with the dev tooling and start building the future o
 
 # Steps: Easy as 1-2-3
 1. `git clone https://github.com/terminus-btc/Lapp-template.git && cd Lapp-template`
-2. `npm install && npm run install:frontend`
+2. `npm run install:all`
 3. `npm start`
 
 # Usage
