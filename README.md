@@ -17,11 +17,19 @@ be the future of online, decentralized payments and become the default currency 
 The create-ligthning-app repo is meant to simplify the local dev env setup, so LNapp developers can stop fussing with the dev tooling and start building the future of online commerce!
 
 ## 🧐 How?
-Setup is easy as 1-2-3!
+Setup is easy as 0-1-2!
 
-1. `git clone https://github.com/terminus-btc/create-LNapp.git && cd Lapp-template`
-2. `npm run install:all`
-3. `npm start`
+0. [Fork](https://github.com/terminus-btc/create-ln-app/fork) **OR** clone this repo
+```
+# Fork
+# Click the fork link above then in a local terminal, run the following command replacing YOURUSERNAME with your github username
+git clone git@github.com:<YOURUSERNAME>/create-ln-app.git my_Lapp && cd my_Lapp
+
+# Clone
+git clone https://github.com/terminus-btc/create-ln-app.git && cd create-ln-app
+`
+1. `npm run install:all`
+2. `npm start`
 
 We recommend using this template as a starting point for your local lightnig development env.
 Over time, we plan to evolve this template to include more customizations and features for advanced
