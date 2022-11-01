@@ -19,7 +19,7 @@ The create-ligthning-app repo is meant to simplify the local dev env setup, so L
 ## 🧐 How?
 Setup is easy as 0-1-2!
 
-0. [Fork](https://github.com/terminus-btc/create-ln-app/fork) **OR** clone this repo
+0. [Fork](https://github.com/terminus-btc/create-ln-app/fork) & clone or simply clone the create-ln-app repo
 ```
 # Fork
 # Click the fork link above then in a local terminal, run the following command replacing YOURUSERNAME with your github username
@@ -27,7 +27,7 @@ git clone git@github.com:<YOURUSERNAME>/create-ln-app.git my_Lapp && cd my_Lapp
 
 # Clone
 git clone https://github.com/terminus-btc/create-ln-app.git && cd create-ln-app
-`
+```
 1. `npm run install:all`
 2. `npm start`
 
