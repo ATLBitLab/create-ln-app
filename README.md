@@ -19,19 +19,22 @@ The create-ligthning-app repo is meant to simplify the local dev env setup, so L
 ## 🧐 How?
 Setup is easy as 0-1-2!
 
-0. [Fork](https://github.com/terminus-btc/create-ln-app/fork) & clone or simply clone the create-ln-app repo
-```
-# Fork
-# Click the fork link above then in a local terminal, run the following command replacing YOURUSERNAME with your github username
-git clone git@github.com:<YOURUSERNAME>/create-ln-app.git my_Lapp && cd my_Lapp
+0. [Click here to fork](https://github.com/terminus-btc/create-ln-app/fork) this repo. Then, run the following command replacing `YOURUSERNAME` with your github username.
 
-# Clone
+```
+git clone git@github.com:<YOURUSERNAME>/create-ln-app.git my_Lapp && cd my_Lapp
+```
+
+Or, you can simply clone this repo if you prefer.
+
+```
 git clone https://github.com/terminus-btc/create-ln-app.git && cd create-ln-app
 ```
+
 1. `npm run install:all`
 2. `npm start`
 
-We recommend using this template as a starting point for your local lightnig development env.
+We recommend using this template as a starting point for your local lightning development env.
 Over time, we plan to evolve this template to include more customizations and features for advanced
 developers.
 
@@ -41,9 +44,9 @@ developers.
   2. bob: `https://127.0.0.1:8082/v1`
   3. carol: `https://127.0.0.1:8083/v1`
 - Admin Macaroons
-  1. alice: `~/.polar/networks/1/volumes/lnd/alice/data/chain/bitcoin/regtest/admin.macaroom`
-  2. bob: `~/.polar/networks/1/volumes/lnd/bob/data/chain/bitcoin/regtest/admin.macaroom`
-  3. carol: `~/.polar/networks/1/volumes/lnd/carol/data/chain/bitcoin/regtest/admin.macaroom`
+  1. alice: `~/.polar/networks/1/volumes/lnd/alice/data/chain/bitcoin/regtest/admin.macaroon`
+  2. bob: `~/.polar/networks/1/volumes/lnd/bob/data/chain/bitcoin/regtest/admin.macaroon`
+  3. carol: `~/.polar/networks/1/volumes/lnd/carol/data/chain/bitcoin/regtest/admin.macaroon`
 - LND REST API Docs: https://api.lightning.community/#lnd-rest-api-reference
 - Bitcoind REST API Endpoint: `http://127.0.0.1:18444/rest`
 - Bitcoind REST API Docs: https://github.com/bitcoin/bitcoin/blob/master/doc/REST-interface.md`
