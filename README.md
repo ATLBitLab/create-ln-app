@@ -1,5 +1,5 @@
 # Create LN App
-Built with ❤️ ☕️ & ₿ in ATL by the team at [Terminus Electric Money Lab](https://terminus.money/).
+Built with ❤️ ☕️ & ₿ in ATL by the team at [Terminus Labs](https://terminus.money/).
 
 ## 🧐 What?
 LN-App: aka LNapp, Lapp, Lightning app, Lightning Network App; in contrast to a "dApp."
