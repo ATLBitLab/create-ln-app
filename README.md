@@ -2,7 +2,7 @@
 Built with ❤️ ☕️ & ₿ in ATL by the team at [Terminus Electric Money Lab](https://terminus.money/).
 
 ## 🧐 What?
-LN-App: aka LNapp, Lapp, Lightning app, Lightning Network App; in contract to a "dApp."
+LN-App: aka LNapp, Lapp, Lightning app, Lightning Network App; in contrast to a "dApp."
 LN-Apps, or Lightning Network apps, are software applications that leverage the lightning network
 for some part of its functionality such as lightning invoices, streaming payments, managing node
 infrastructure and/or liquidity, etc. The list goes on! The idea of the LNapp is to reclaim the use
