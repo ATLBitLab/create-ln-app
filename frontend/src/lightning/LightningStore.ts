@@ -3,6 +3,7 @@ import { createContext, useContext } from "react";
 export class LightningStore {
   restEndpoint: string | undefined;
   adminMacaroon: string | undefined;
+  Me: string | undefined;
 
   constructor() { 
     console.log('constructed')
@@ -13,8 +14,13 @@ export class LightningStore {
     this.adminMacaroon = adminMacaroon;
   };
 
+  async whoAmI(me: string) {
+    this.Me = me;
+  }
+
+
   async addPeer(connectionString: string) {
-    console.log("Added peer with connection string");
+    
   }
 
   async openChannel(pubkey: string, amount: number) {
