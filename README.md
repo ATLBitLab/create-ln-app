@@ -75,9 +75,9 @@ I prefer `n` over `nvm` because it seems to run faster.
   2. bob: `https://127.0.0.1:8082/v1`
   3. carol: `https://127.0.0.1:8083/v1`
 - Admin Macaroons: you will need these in hex format to authenticate REST calls to your LND nodes on polar.
-  1. alice: `~/.polar/networks/1/volumes/lnd/alice/data/chain/bitcoin/regtest/admin.macaroon`
-  2. bob: `~/.polar/networks/1/volumes/lnd/bob/data/chain/bitcoin/regtest/admin.macaroon`
-  3. carol: `~/.polar/networks/1/volumes/lnd/carol/data/chain/bitcoin/regtest/admin.macaroon`
+  1. alice: `./backend/docker/compose/volumes/lnd/alice/data/chain/bitcoin/regtest/admin.macaroon`
+  2. bob: `./backend/docker/compose/volumes/lnd/bob/data/chain/bitcoin/regtest/admin.macaroon`
+  3. carol: `./backend/docker/compose/volumes/lnd/carol/data/chain/bitcoin/regtest/admin.macaroon`
 
 - LND REST API Docs: https://api.lightning.community/#lnd-rest-api-reference
 - Bitcoind REST API Endpoint: `http://127.0.0.1:18444/rest`

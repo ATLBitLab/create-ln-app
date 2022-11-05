@@ -8,7 +8,6 @@ function App() {
     <Container>
         <Title> Create LN App </Title>
         <Text size={'2'}> Get Started with creating a full-stack App on the Lightning Network. </Text>
-
         <Page />
     </Container>
   );

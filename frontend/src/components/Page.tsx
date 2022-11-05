@@ -16,7 +16,7 @@ const Page = () => {
 
   const handleAddPeer = async (event: SelectChangeEvent) => {
     setPeer(event.target.value);
-    await lightningStore.addPeer('peer')
+    // await lightningStore.addPeer('peer')
   }
 
   return (
@@ -56,11 +56,11 @@ const Page = () => {
       </Step>
 
       <Step>
-        <Text>2. Open a channel to Bob</Text>
+        <Text>2. List peers</Text>
         <Button
-          onClick={() => lightningStore.openChannel('pubkey', 10000)}
+          onClick={() => lightningStore.listPeers()}
         >
-          Open channel
+          List peers
         </Button>
       </Step>
 

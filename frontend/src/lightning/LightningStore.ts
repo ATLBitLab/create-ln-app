@@ -1,11 +1,11 @@
 import { createContext, useContext } from "react";
 
 export class LightningStore {
-  restEndpoint: string | undefined;
-  adminMacaroon: string | undefined;
-  Me: string | undefined;
+  restEndpoint: any;
+  adminMacaroon: any;
+  Me: any;
 
-  constructor() { 
+  constructor() {
     console.log('constructed')
   }
 
@@ -18,9 +18,17 @@ export class LightningStore {
     this.Me = me;
   }
 
-
-  async addPeer(connectionString: string) {
-    
+  async listPeers() {
+    const response = await fetch(`${this.restEndpoint}/peers`, {
+      credentials: "include",
+      redirect: 'follow',
+      method: "GET",
+      headers: {
+        'Grpc-Metadata-macaroon': this.adminMacaroon,
+      },
+    });
+    const data = await response.json();
+    console.log('listPeers:', data);
   }
 
   async openChannel(pubkey: string, amount: number) {
