@@ -4,9 +4,11 @@
   "private": false,
   "scripts": {
     "start": "concurrently npm:watch:*",
+    "test:env": "# TODO: script testing env",
     "install:all": "npm install && npm run install:frontend",
     "install:frontend": "cd frontend && npm install && cd ..",
     "watch:frontend": "cd frontend && npm start",
+    "watch:frontend:auto-port": "sh ./scripts/start.frontend.sh",
     "watch:backend": "cd backend/docker/compose && docker-compose up",
     "start:backend:polar": "open -a Polar",
     "start:backend:compose": "cd backend/docker/compose && docker-compose up",
