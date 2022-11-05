@@ -19,6 +19,7 @@
     "concurrently": "^7.5.0"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
     "styled-components": "^5.3.6"
   }
 }
