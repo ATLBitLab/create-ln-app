@@ -14,7 +14,7 @@ term "dApp" with Lapp or LNapp because we fundamentally believe the Bitcoin Ligh
 be the future of online, decentralized payments and become the default currency / payments network for the globe.
 
 ## 🧐 Why?
-The create-ligthning-app repo is meant to simplify the local dev env setup, so LNapp developers can stop fussing with the dev tooling and start building the future of online commerce!
+The create-ln-app repo is meant to simplify the local dev env setup, so LNapp developers can stop fussing with the dev tooling and start building the future of online commerce!
 
 ## 🧐 How?
 Setup is easy as 0-1-2!
@@ -36,7 +36,7 @@ git clone https://github.com/terminus-btc/create-ln-app.git && cd create-ln-app
 
 We recommend using this template as a starting point for your local lightning development env.
 Over time, we plan to evolve this template to include more customizations and features for advanced
-developers.
+development.
 
 ## Important Information
 - LND REST Endpoints
