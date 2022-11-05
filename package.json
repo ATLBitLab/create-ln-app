@@ -4,6 +4,8 @@
   "private": false,
   "scripts": {
     "start": "concurrently npm:watch:*",
+    "lnd:urls": "",
+    "lnd:macaroons": "",
     "install:all": "npm install && npm run install:frontend",
     "install:frontend": "cd frontend && npm install && cd ..",
     "watch:frontend": "cd frontend && npm start",
