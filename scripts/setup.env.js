@@ -19,5 +19,5 @@ nodeData.forEach((node, i) => {
     nodeEnvString += NODE_ENV;
 });
 
-fs.writeFileSync(path.join(appDir, '/.env.local'), nodeEnvString);
-console.info('create-ln-app: .env.local setup complete');
+fs.writeFileSync(path.join(appDir, '/frontend/.env'), nodeEnvString);
+console.info('create-ln-app: .env setup complete');
