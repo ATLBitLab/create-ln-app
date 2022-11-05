@@ -1,22 +1,67 @@
 import { Select, MenuItem, SelectChangeEvent } from '@mui/material';
 import { useState } from 'react';
-import { useLightning } from '../lightning/LightningStore';
+import { LightningStore, useLightning } from '../lightning/LightningStore';
 import { Button, Input, Container, Step, Text } from './Page.styles';
+import { Env } from "../Env"
 
 const Page = () => {
   const lightningStore = useLightning();
   const [invoice, setInvoice] = useState('');
-  const [me, setMe] = useState('');
+  const [me, setMe] = useState({id: "", name: "", macaroon: "", url: ""});
+  const [name, setName] = useState('');
   const [peer, setPeer] = useState('');
 
+
+  // const [endpoint, setEndpoint] = useState<LightningStore>(REST_ENDPOINT);
+  // const [macaroon, setMacaroon] = useState('')
+
   const handleWhoAmI = async (event: SelectChangeEvent) => {
-    setMe(event.target.value);
+    const id: any = event.target.value;
+    let Me: any;
+    switch (id) {
+      case "1":
+        Me = {
+          id: id,
+          name: Env.NODE_1_NAME,
+          macaroon: Env.NODE_1_ADMIN_MACAROON,
+          url: Env.NODE_1_URL,
+        }
+        break;
+      case "2":
+        Me = {
+          id: "id",
+          name: Env.NODE_2_NAME,
+          macaroon: Env.NODE_2_ADMIN_MACAROON,
+          url: Env.NODE_2_URL,
+        }
+        break;
+      case "3":
+        Me = {
+          id: "id",
+          name: Env.NODE_3_NAME,
+          macaroon: Env.NODE_3_ADMIN_MACAROON,
+          url: Env.NODE_3_URL,
+        }
+        break;
+      default:
+        Me = {
+          id: id,
+          name: Env.NODE_1_NAME,
+          macaroon: Env.NODE_1_ADMIN_MACAROON,
+          url: Env.NODE_1_URL,
+        }
+        break;
+    }
+    setMe(Me)
+    setName(Me.name)
+
+    console.log("Me", Me)
     await lightningStore.whoAmI(event.target.value);
   };
 
   const handleAddPeer = async (event: SelectChangeEvent) => {
     setPeer(event.target.value);
-    await lightningStore.addPeer('peer')
+    await lightningStore.listPeers()
   }
 
   return (
@@ -26,33 +71,30 @@ const Page = () => {
         <Text>Who are you?</Text>
         <Select
           style={{ width: "30%" }}
-          labelId="node-1"
-          id="node-1"
-          value={me}
+          labelId="nodeId"
+          id="nodeId"
           label="Age"
           onChange={handleWhoAmI}
         >
-          <MenuItem value={"Alice"}>Alice</MenuItem>
-          <MenuItem value={"Bob"}>Bob</MenuItem>
-          <MenuItem value={"Carol"}>Carol</MenuItem>
+          <MenuItem value={"1"}>Alice</MenuItem>
+          <MenuItem value={"2"}>Bob</MenuItem>
+          <MenuItem value={"3"}>Carol</MenuItem>
         </Select>
-        <Text>You are now {me}</Text>
+        <Text>You are now {name.toUpperCase()}</Text>
+        <Text>Connection Information:</Text>
+        <Text>ID: {me.id}</Text>
+        <Text>Name: {me.name}</Text>
+        <Text>Macaroon: {me.macaroon.slice(0, 80)}</Text>
+        <Text>URL: {me.url}</Text>
       </Step>
 
       <Step>
-        <Text>Add a peer</Text>
-        <Select
-          style={{ width: "30%" }}
-          labelId="node-1"
-          id="node-1"
-          value={peer}
-          label="Age"
-          onChange={handleAddPeer}
+        <Text>List peers</Text>
+        <Button
+          onClick={() => lightningStore.listPeers()}
         >
-          <MenuItem value={"Alice"}>Alice</MenuItem>
-          <MenuItem value={"Bob"}>Bob</MenuItem>
-          <MenuItem value={"Carol"}>Carol</MenuItem>
-        </Select>
+          List
+        </Button>
       </Step>
 
       <Step>
