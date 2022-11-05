@@ -38,15 +38,47 @@ We recommend using this template as a starting point for your local lightning de
 Over time, we plan to evolve this template to include more customizations and features for advanced
 developers.
 
-## Important Information
-- LND REST Endpoints
+## Prerequisites
+Below is a list of required and optional software packages for running this software.
+#### Required
+The software below is required to be able to properly run this code. Click the links for install instructions.
+- [node/npm](https://nodejs.org/en/download/package-manager/)
+- [npx](https://www.npmjs.com/package/npx) (requires node & npm)
+- [docker](https://docs.docker.com/engine/install/)
+- [docker-compose](https://docs.docker.com/compose/install/)
+
+Or if you're on a mac, you can install `node`, `docker` and `docker-compose` with homebrew, and then
+install `npx` using `npm`.
+```
+brew install node docker docker-compose
+npm install -g npx
+```
+
+If you install `docker desktop`, make sure you open it and get the docker engine running.
+
+#### Optional
+Homebrew is optional for mac, but it is very handy to have when you need to install packages.
+- [brew](https://brew.sh/) (mac only)
+If you want homebrew, run the following command.
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+ `n` and `nvm` are also options, but again, they are handy node version management packages.
+I prefer `n` over `nvm` because it seems to run faster.
+- [n](https://www.npmjs.com/package/n)
+- [nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+
+## Useful Information
+- LND REST Endpoints: you will need these urls to make REST calls to your LND nodes on polar.
   1. alice: `https://127.0.0.1:8081/v1`
   2. bob: `https://127.0.0.1:8082/v1`
   3. carol: `https://127.0.0.1:8083/v1`
-- Admin Macaroons
+- Admin Macaroons: you will need these in hex format to authenticate REST calls to your LND nodes on polar.
   1. alice: `~/.polar/networks/1/volumes/lnd/alice/data/chain/bitcoin/regtest/admin.macaroon`
   2. bob: `~/.polar/networks/1/volumes/lnd/bob/data/chain/bitcoin/regtest/admin.macaroon`
   3. carol: `~/.polar/networks/1/volumes/lnd/carol/data/chain/bitcoin/regtest/admin.macaroon`
+
 - LND REST API Docs: https://api.lightning.community/#lnd-rest-api-reference
 - Bitcoind REST API Endpoint: `http://127.0.0.1:18444/rest`
 - Bitcoind REST API Docs: https://github.com/bitcoin/bitcoin/blob/master/doc/REST-interface.md`
