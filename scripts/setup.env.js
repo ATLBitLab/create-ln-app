@@ -20,4 +20,4 @@ nodeData.forEach((node, i) => {
 });
 
 fs.writeFileSync(path.join(appDir, '/.env.local'), nodeEnvString);
-console.info(`create-ln-app: .env.local setup complete`);
+console.info('create-ln-app: .env.local setup complete');

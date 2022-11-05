@@ -8,7 +8,7 @@
     "install:frontend": "cd frontend && npm install && cd ..",
     "env:lnd:urls": "# TODO",
     "env:lnd:macaroons": "# TODO",
-    "watch:env": "sh ./scripts/setup.env.sh && node ./scripts/setup.js",
+    "watch:env": "node ./scripts/setup.env.js",
     "watch:frontend": "cd frontend && npm start",
     "watch:backend": "cd backend/docker/compose && docker-compose up",
     "start:backend:polar": "open -a Polar",
