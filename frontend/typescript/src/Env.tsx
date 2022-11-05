@@ -1,27 +1,23 @@
-const NODE_1_NAME: any = process.env.REACT_APP_NODE_1_NAME
-const NODE_1_ADMIN_MACAROON: any = process.env.REACT_APP_NODE_1_ADMIN_MACAROON
-const NODE_1_PORT: any = process.env.REACT_APP_NODE_1_PORT
-const NODE_1_URL: any = process.env.REACT_APP_NODE_1_URL
-const NODE_2_NAME: any = process.env.REACT_APP_NODE_2_NAME
-const NODE_2_ADMIN_MACAROON: any = process.env.REACT_APP_NODE_2_ADMIN_MACAROON
-const NODE_2_PORT: any = process.env.REACT_APP_NODE_2_PORT
-const NODE_2_URL: any = process.env.REACT_APP_NODE_2_URL
-const NODE_3_NAME: any = process.env.REACT_APP_NODE_3_NAME
-const NODE_3_ADMIN_MACAROON: any = process.env.REACT_APP_NODE_3_ADMIN_MACAROON
-const NODE_3_PORT: any = process.env.REACT_APP_NODE_3_PORT
-const NODE_3_URL: any = process.env.REACT_APP_NODE_3_URL
+const env: any = process.env;
+const BASE_URL: string = env.REACT_APP_BASE_URL;
+const NUM_NODES: Array<Number> = [env.REACT_APP_NUM_NODES];
 
-export const Env = {
-  NODE_1_NAME: NODE_1_NAME,
-  NODE_1_ADMIN_MACAROON: NODE_1_ADMIN_MACAROON,
-  NODE_1_PORT: NODE_1_PORT,
-  NODE_1_URL: NODE_1_URL,
-  NODE_2_NAME: NODE_2_NAME,
-  NODE_2_ADMIN_MACAROON: NODE_2_ADMIN_MACAROON,
-  NODE_2_PORT: NODE_2_PORT,
-  NODE_2_URL: NODE_2_URL,
-  NODE_3_NAME: NODE_3_NAME,
-  NODE_3_ADMIN_MACAROON: NODE_3_ADMIN_MACAROON,
-  NODE_3_PORT: NODE_3_PORT,
-  NODE_3_URL: NODE_3_URL,
-}
+const Env = {}
+
+const nodes = [...Array(NUM_NODES).keys()]
+
+nodes.forEach(id => {
+  const NODE_NAME = `REACT_APP_${"N" + id}_NAME`
+  const MACAROON = `REACT_APP_${env[NODE_NAME]}_MACAROON`
+  const PORT = env[`REACT_APP_${env[NODE_NAME]}_PORT`]
+  const URL = `${BASE_URL}:${PORT}`
+
+  Env[NODE_NAME] = {
+    id: id,
+    name: env[NODE_NAME],
+    macaroon: env[MACAROON],
+    url: URL
+  }
+});
+
+export { Env };

@@ -3,56 +3,41 @@ import { useState } from 'react';
 import { LightningStore, useLightning } from '../lightning/LightningStore';
 import { Button, Input, Container, Step, Text } from './Page.styles';
 import { Env } from "../Env"
+const BASE_URL = process.env.BASE_URL
+
+const env = process.env;
+console.log(env)
 
 const Page = () => {
   const lightningStore = useLightning();
   const [invoice, setInvoice] = useState('');
-  const [me, setMe] = useState({id: "", name: "", macaroon: "", url: ""});
+  const [me, setMe] = useState({ id: "", name: "", macaroon: "", url: "" });
   const [name, setName] = useState('');
   const [peer, setPeer] = useState('');
 
 
   // const [endpoint, setEndpoint] = useState<LightningStore>(REST_ENDPOINT);
   // const [macaroon, setMacaroon] = useState('')
+  // 
 
   const handleWhoAmI = async (event: SelectChangeEvent) => {
     const id: any = event.target.value;
     let Me: any;
     switch (id) {
       case "1":
-        Me = {
-          id: id,
-          name: Env.NODE_1_NAME,
-          macaroon: Env.NODE_1_ADMIN_MACAROON,
-          url: Env.NODE_1_URL,
-        }
+        setMe(Me)
         break;
       case "2":
-        Me = {
-          id: "id",
-          name: Env.NODE_2_NAME,
-          macaroon: Env.NODE_2_ADMIN_MACAROON,
-          url: Env.NODE_2_URL,
-        }
+        setMe(Me)
         break;
       case "3":
-        Me = {
-          id: "id",
-          name: Env.NODE_3_NAME,
-          macaroon: Env.NODE_3_ADMIN_MACAROON,
-          url: Env.NODE_3_URL,
-        }
+        setMe(Me)
         break;
       default:
-        Me = {
-          id: id,
-          name: Env.NODE_1_NAME,
-          macaroon: Env.NODE_1_ADMIN_MACAROON,
-          url: Env.NODE_1_URL,
-        }
+        setMe(Me)
         break;
     }
-    setMe(Me)
+    
     setName(Me.name)
 
     console.log("Me", Me)

@@ -16,12 +16,11 @@ export class LightningStore {
 
   async whoAmI(N: string) {
     console.log("whoAmI", N);
-    this.me = N;
-    if (N === "1") {
+    if (N === "0") {
       this.me = process.env.REACT_APP_NODE_1_NAME;
       this.restEndpoint = process.env.REACT_APP_NODE_1_URL;
       this.adminMacaroon = process.env.REACT_APP_NODE_1_ADMIN_MACAROON;
-    } else if (N === "2"){
+    } else if (N === "1"){
       this.me = process.env.REACT_APP_NODE_2_NAME;
       this.restEndpoint = process.env.REACT_APP_NODE_2_URL;
       this.adminMacaroon = process.env.REACT_APP_NODE_2_ADMIN_MACAROON;
