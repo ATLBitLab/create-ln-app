@@ -1,22 +1,20 @@
 # Create LN App
-Built with ❤️ ☕️ & ₿ in ATL by the team at [Terminus Labs](https://terminus.money/).
+Built with ❤️ ☕️ & ₿ in ATL by the [Terminus Labs](https://terminus.money/) team. This is an open-source
+effort. Feel free to steal like an artist to make your life eaier. If you find issues, pls submit them
+to the repo. If you're feelin' froggy 🐸 and want a feature now, feel free to fork, build and submit a PR.
+## What? 🧐
+Lapp: aka Lightning App; in contrast to a dApp. The term dApp was popularized by the web 3.0 / defi / crypto community. Much like the term web 3.0, the term dApp has become overused, subsequently losing its meaning. We fundamentally believe that the Lapp will supercede the dApp as the go-to framework
+to build on top of the Bitcoin Lightning Network, and this repo is are effort to help populerize that idea.
 
-## 🧐 What?
-LN-App: aka LNapp, Lapp, Lightning app, Lightning Network App; in contrast to a "dApp."
-LN-Apps, or Lightning Network apps, are software applications that leverage the lightning network
-for some part of its functionality such as lightning invoices, streaming payments, managing node
-infrastructure and/or liquidity, etc. The list goes on! The idea of the LNapp is to reclaim the use
-of the common term "dApp" but reframe it around what we think is the future of decentralized applications.
+Lapps are software applications that run on top of the Bitcoin Lightning Network: (L)igtning(app).
+The idea of this repo is to enable developers to build Lapps faster and easier so as a community, we can "move fast and break things" on L2 increasing the rate of innovation in Bitcoin.
 
-The term "dApp" was popularized by the web 3.0 / defi / crypto community. Much like the term
-"web 3.0", the term "dApp" has been overused, subsequently clouding its meaning. We are attempting to replace the
-term "dApp" with Lapp or LNapp because we fundamentally believe the Bitcoin Lightning Network will
-be the future of online, decentralized payments and become the default currency / payments network for the globe.
+We also want to swap out the idea of a dApp for a Lapp because, as a Bitcoin-focused organization, we think the Lightning Network will scale Bitcoin to become the money of the future.
 
-## 🧐 Why?
-The create-ligthning-app repo is meant to simplify the local dev env setup, so LNapp developers can stop fussing with the dev tooling and start building the future of online commerce!
+## Why? 🤷🏼‍♂️
+The create-ln-app repo is meant to simplify the local dev env setup, so Lapp developers can stop fussing with the dev tooling and start building the future!
 
-## 🧐 How?
+## How? 🛠
 Setup is easy as 0-1-2!
 
 0. [Click here to fork](https://github.com/terminus-btc/create-ln-app/fork) this repo. Then, run the following command replacing `YOURUSERNAME` with your github username.
@@ -70,6 +68,8 @@ I prefer `n` over `nvm` because it seems to run faster.
 - [nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
 ## Useful Information
+Once the `npm start` command is executed, you'll see a `.env` file in the `frontend` folder that should have all the env variables that you need to run that app. In the event that fails, find the relevant info below.
+
 - LND REST Endpoints: you will need these urls to make REST calls to your LND nodes on polar.
   1. alice: `https://127.0.0.1:8081/v1`
   2. bob: `https://127.0.0.1:8082/v1`
