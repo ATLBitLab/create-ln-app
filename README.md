@@ -1,7 +1,7 @@
 # Create LN App
-Built with ❤️ ☕️ & ₿ in ATL by the team at [Terminus Labs](https://terminus.money/).
+Built with ❤️ ☕️ & ₿ in ATL by the [Terminus Labs](https://terminus.money/) team. Feel free to submit issues and/or PR for new feature requests
 
-## 🧐 What?
+## What? 🧐
 Lapp: aka Lightning App; in contrast to a dApp. The term dApp was popularized by the web 3.0 / defi / crypto community.
 Much like the term web 3.0, the term dApp has been overused, subsequently clouding its meaning.
 Lapps are software applications that run on top of the Bitcoin Lightning Network.
@@ -9,7 +9,7 @@ The idea of the Lapp is to allow us to move fast and break things on L2, so we c
 of innovation in Bitcoin. We also want to swap out the idea of a dApp for a Lapp because, as a Bitcoin-focused
 organization, we think Bitcoin's Lightning Network will scale Bitcoin to become the future of online payments and money.
 
-## 🧐 Why?
+## Why? 🤷🏼‍♂️
 The create-ln-app repo is meant to simplify the local dev env setup, so Lapp developers can stop fussing with the dev tooling and start building the future of online commerce!
 
 ## 🧐 How?
