@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { dirname } = require('path');
 const appDir = dirname(require.main.path);
-const { networkInfo } = require('../backend/docker/compose/export.js')
+const { networkInfo } = require('../backend/docker/compose/0/export.js')
 // const networkInfo = JSON.parse(fs.readFileSync(envFile, 'utf8'));
 
 const BASE_URL = 'https://127.0.0.1';
@@ -22,7 +22,7 @@ nodeData.forEach((node, i) => {
     const NAME = node.name.toUpperCase();
     const MACAROON = Buffer.from(
         fs.readFileSync(node.paths.adminMacaroon)
-    ).toString('hex');
+    ).toString('hex').toUpperCase();
 
     NODE_NAMES.push(NAME);
     NODES.push({
@@ -44,7 +44,7 @@ const nodeEnvJsonStr = `const dev = ${JSON.stringify(
     nodeEnvJson,
     null,
     2
-)}\n\nconst prod = {};\n\nconst config = process.env.REACT_APP_ENV === 'production' ? prod : dev;\n\nexport const Env = { ...config,};`;
+)}\n\nconst prod = {};\n\nconst config = process.env.REACT_APP_ENV === 'production' ? prod : dev;\n\nexport const { NUM_NODES, BASE_URL, NODE_NAMES, NODES } = { ...config };`;
 
 fs.writeFileSync(path.join(appDir, '/frontend/ts/.env'), nodeEnvStr);
 fs.writeFileSync(path.join(appDir, '/frontend/ts/src/.env.js'), nodeEnvJsonStr);

@@ -1,10 +1,16 @@
 const path = require('path');
 const fs = require('fs');
-const lndDir = path.join(__dirname, '0/volumes/lnd');
+const lndDir = path.join(__dirname, 'volumes/lnd');
 const nodes = fs.readdirSync(lndDir);
-const node0 = path.join(lndDir, nodes[0]);
-const node1 = path.join(lndDir, nodes[1]);
-const node2 = path.join(lndDir, nodes[2]);
+const node0 = path.join(lndDir, nodes[0]),
+    split0 = node0.split('/'),
+    name0 = split0[split0.length - 1];
+const node1 = path.join(lndDir, nodes[1]),
+    split1 = node1.split('/'),
+    name1 = split1[split0.length - 1];
+const node2 = path.join(lndDir, nodes[2]),
+    split2 = node2.split('/'),
+    name2 = split2[split0.length - 1];
 
 const networkInfo = {
     network: {
@@ -36,7 +42,7 @@ const networkInfo = {
                 {
                     id: 0,
                     networkId: 1,
-                    name: 'alice',
+                    name: name0,
                     type: 'lightning',
                     implementation: 'LND',
                     version: '0.15.2-beta',
@@ -54,7 +60,7 @@ const networkInfo = {
                 {
                     id: 1,
                     networkId: 1,
-                    name: 'bob',
+                    name: name1,
                     type: 'lightning',
                     implementation: 'LND',
                     version: '0.15.2-beta',
@@ -72,7 +78,7 @@ const networkInfo = {
                 {
                     id: 2,
                     networkId: 1,
-                    name: 'carol',
+                    name: name2,
                     type: 'lightning',
                     implementation: 'LND',
                     version: '0.15.2-beta',

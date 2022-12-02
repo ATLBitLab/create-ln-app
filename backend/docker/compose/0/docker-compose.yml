@@ -27,15 +27,15 @@ services:
       - '28334:28334'
       - '29335:28335'
   alice:
-    image: polarlightning/lnd:0.15.2-beta
+    image: polarlightning/lnd:0.15.5-beta.rc1
     container_name: polar-n1-alice
     environment:
       USERID: ${USERID:-1000}
       GROUPID: ${GROUPID:-1000}
     hostname: alice
     command: >-
-      lnd --restcors=* --noseedbackup --trickledelay=5000 --alias=alice --externalip=alice
-      --tlsextradomain=alice --tlsextradomain=polar-n1-alice
+      lnd --restcors=* --noseedbackup --trickledelay=5000 --alias=alice
+      --externalip=alice --tlsextradomain=alice --tlsextradomain=polar-n1-alice
       --listen=0.0.0.0:9735 --rpclisten=0.0.0.0:10009 --restlisten=0.0.0.0:8080
       --bitcoin.active --bitcoin.regtest --bitcoin.node=bitcoind
       --bitcoind.rpchost=polar-n1-backend1 --bitcoind.rpcuser=polaruser
@@ -54,17 +54,17 @@ services:
       - '10001:10009'
       - '9735:9735'
   bob:
-    image: polarlightning/lnd:0.15.2-beta
+    image: polarlightning/lnd:0.15.5-beta.rc1
     container_name: polar-n1-bob
     environment:
       USERID: ${USERID:-1000}
       GROUPID: ${GROUPID:-1000}
     hostname: bob
     command: >-
-      lnd --restcors=* --noseedbackup --trickledelay=5000 --alias=bob --externalip=bob
-      --tlsextradomain=bob --tlsextradomain=polar-n1-bob --listen=0.0.0.0:9735
-      --rpclisten=0.0.0.0:10009 --restlisten=0.0.0.0:8080 --bitcoin.active
-      --bitcoin.regtest --bitcoin.node=bitcoind
+      lnd --restcors=* --noseedbackup --trickledelay=5000 --alias=bob
+      --externalip=bob --tlsextradomain=bob --tlsextradomain=polar-n1-bob
+      --listen=0.0.0.0:9735 --rpclisten=0.0.0.0:10009 --restlisten=0.0.0.0:8080
+      --bitcoin.active --bitcoin.regtest --bitcoin.node=bitcoind
       --bitcoind.rpchost=polar-n1-backend1 --bitcoind.rpcuser=polaruser
       --bitcoind.rpcpass=polarpass
       --bitcoind.zmqpubrawblock=tcp://polar-n1-backend1:28334
@@ -81,15 +81,15 @@ services:
       - '10002:10009'
       - '9736:9735'
   carol:
-    image: polarlightning/lnd:0.15.2-beta
+    image: polarlightning/lnd:0.15.5-beta.rc1
     container_name: polar-n1-carol
     environment:
       USERID: ${USERID:-1000}
       GROUPID: ${GROUPID:-1000}
     hostname: carol
     command: >-
-      lnd --restcors=* --noseedbackup --trickledelay=5000 --alias=carol --externalip=carol
-      --tlsextradomain=carol --tlsextradomain=polar-n1-carol
+      lnd --restcors=* --noseedbackup --trickledelay=5000 --alias=carol
+      --externalip=carol --tlsextradomain=carol --tlsextradomain=polar-n1-carol
       --listen=0.0.0.0:9735 --rpclisten=0.0.0.0:10009 --restlisten=0.0.0.0:8080
       --bitcoin.active --bitcoin.regtest --bitcoin.node=bitcoind
       --bitcoind.rpchost=polar-n1-backend1 --bitcoind.rpcuser=polaruser

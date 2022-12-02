@@ -1,33 +1,29 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { LightningStore } from '../lightning/LightningStore';
-import { Env } from '../.env';
-import { Typography } from '@mui/material';
+import { NUM_NODES, BASE_URL, NODE_NAMES, NODES } from '../.env';
 
-const nodes = Env.NODES;
-const baseUrl = Env.BASE_URL;
+const lightningStore = new LightningStore();
 
 export const Page = () => {
-    const [invoice, setInvoice] = useState('');
-    const [user, setUser] = useState({});
-    const [peer, setPeer] = useState('');
+    const defaultNode = lightningStore.getNode();
 
-    useEffect(() => {
-        setUser(nodes[0]);
-        console.log('user', user);
-    }, []);
+    const [invoice, setInvoice] = useState();
+    const [node, setNode] = useState(defaultNode ?? NODES[0]);
+    const [availablePeers, setAvailablePeers] = useState(NODE_NAMES);
+    const [peers, setPeers] = useState();
 
-    const lightningStore = new LightningStore();
-
-    const handleSetNode = async (event) => {
-        const user = await lightningStore.setNode(event.target.value);
-        setUser(user);
-        console.log('user', user);
+    const handleSetNode = (event) => {
+        lightningStore.setNode(NODES[event.target.value]);
+        const node = lightningStore.getNode();
+        availablePeers.splice(node.id, 1);
+        console.log(availablePeers);
+        console.log(NODES);
+        setNode(node);
     };
 
     const handleAddPeer = async (event) => {
-        setPeer(event.target.value);
-        await lightningStore.listPeers();
+        
     };
 
     return (
@@ -36,38 +32,79 @@ export const Page = () => {
             <div>
                 <div>1. Select a node.</div>
                 <select
-                    id="nodeId"
-                    label="Age"
+                    id="nodeSelect"
                     onChange={handleSetNode}
-                    defaultValue={nodes[0]}
+                    defaultValue={''}
                 >
-                    {nodes
-                        ? nodes.map((n) => {
-                              return (
-                                  <option key={n.id} value={n.id}>
-                                      {n.name}
-                                  </option>
-                              );
-                          })
-                        : ''}
+                    <option key={''} value={''}>
+                        {''}
+                    </option>
+                    {NODE_NAMES.map((n, i) => {
+                        return (
+                            <option key={`node-${n}-${i}`} value={i}>
+                                {n}
+                            </option>
+                        );
+                    })}
                 </select>
-                <div>
-                    <p>Name: {user.name}</p>
-                    <p>Connection Information</p>
-                    <p>ID: {user.id}</p>
-                    <p style={{ width: '1000px', wordWrap: 'break-word' }}>
-                        Macaroon:{' '}
-                        {user.macaroon ? user.macaroon.toUpperCase() : ''}
-                    </p>
-                    <p>URL: {`${baseUrl}:${user.port}`}</p>
-                </div>
-
+                {node ? (
+                    <div>
+                        <p>Name: {node.name}</p>
+                        <p>Connection Information</p>
+                        <p>ID: {node.id}</p>
+                        <p style={{ width: '1000px', wordWrap: 'break-word' }}>
+                            Macaroon:{' '}
+                            {node.macaroon ? node.macaroon.toUpperCase() : ''}
+                        </p>
+                        <p>URL: {`${BASE_URL}:${node.port}`}</p>
+                    </div>
+                ) : (
+                    ''
+                )}
                 <div>
                     <p>2. List peers</p>
-                    <button onClick={() => lightningStore.listPeers(user.id)}>
-                        List peers
+                    <button
+                        onClick={async () => {
+                            const peers = await lightningStore.listPeers(node);
+                            console.log(peers);
+                            peers
+                                ? setPeers(peers)
+                                : setPeers(
+                                      `${node.name} does not have peers! Use step 3 to connect to peers!`
+                                  );
+                        }}
+                    >
+                        List Peers
                     </button>
+                    <p>{peers}</p>
                 </div>
+                <div>
+                    <p>3. Connect to peers</p>
+                    <button
+                        onClick={async () => {
+                            const connection = await lightningStore.connect(
+                                node
+                            );
+                            console.log(connection);
+                        }}
+                    >
+                        Connect
+                    </button>
+                    <br />
+                    <select id="connectSelect" onChange={handleAddPeer} defaultValue={node.name}>
+                        {availablePeers.map((n, i) => {
+                            return (
+                                <option
+                                    key={`node-connect-${n}-${i}`}
+                                    value={n}
+                                >
+                                    {n}
+                                </option>
+                            );
+                        })}
+                    </select>
+                </div>
+
                 <br />
                 <div>
                     <div>3. Mine a block 6 times to confirm the channel</div>
