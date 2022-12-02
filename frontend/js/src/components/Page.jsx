@@ -10,7 +10,7 @@ export const Page = () => {
 
     const [invoice, setInvoice] = useState();
     const [node, setNode] = useState(defaultNode ?? NODES[0]);
-    const [availablePeers, setAvailablePeers] = useState(NODE_NAMES);
+    const [availablePeers, setAvailablePeers] = useState([...NODE_NAMES]);
     const [peers, setPeers] = useState();
 
     const handleSetNode = (event) => {
@@ -18,12 +18,12 @@ export const Page = () => {
         const node = lightningStore.getNode();
         availablePeers.splice(node.id, 1);
         console.log(availablePeers);
-        console.log(NODES);
+        console.log(NODE_NAMES);
         setNode(node);
     };
 
     const handleAddPeer = async (event) => {
-        
+
     };
 
     return (
@@ -92,7 +92,7 @@ export const Page = () => {
                     </button>
                     <br />
                     <select id="connectSelect" onChange={handleAddPeer} defaultValue={node.name}>
-                        {availablePeers.map((n, i) => {
+                        {NODE_NAMES.map((n, i) => {
                             return (
                                 <option
                                     key={`node-connect-${n}-${i}`}
