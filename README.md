@@ -80,5 +80,5 @@ Once the `npm start` command is executed, you'll see a `.env` file in the `front
   3. carol: `~/.polar/networks/1/volumes/lnd/carol/data/chain/bitcoin/regtest/admin.macaroon`
 
 - LND REST API Docs: https://api.lightning.community/#lnd-rest-api-reference
-- Bitcoind REST API Endpoint: `http://127.0.0.1:18444/rest`
-- Bitcoind REST API Docs: https://github.com/bitcoin/bitcoin/blob/master/doc/REST-interface.md`
+- Bitcoind REST API Endpoint: http://127.0.0.1:18444/rest
+- Bitcoind REST API Docs: https://github.com/bitcoin/bitcoin/blob/master/doc/REST-interface.md
