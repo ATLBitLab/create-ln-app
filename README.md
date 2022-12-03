@@ -68,17 +68,19 @@ I prefer `n` over `nvm` because it seems to run faster.
 - [nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
 ## Useful Information
-Once the `npm start` command is executed, you'll see a `.env` file in the `frontend` folder that should have all the env variables that you need to run that app. In the event that fails, find the relevant info below.
+Once the `npm start` command is executed, you'll see a new `.env` file placed at `frontend/js/.env` and `frontend/ts/.env` as well as `frontend/js/src/.env.js` and `frontend/ts/src/.env.js`. Both will have all the env variables that you need to run the example app providing you options for how you want to access env vars (i.e. `process.env` vs `import { ... } from ../.env`). In the event that fails, find the relevant info below.
 
+#### LND
 - LND REST Endpoints: you will need these urls to make REST calls to your LND nodes on polar.
   1. alice: `https://127.0.0.1:8081/v1`
   2. bob: `https://127.0.0.1:8082/v1`
   3. carol: `https://127.0.0.1:8083/v1`
 - Admin Macaroons: you will need these in hex format to authenticate REST calls to your LND nodes on polar.
-  1. alice: `~/.polar/networks/1/volumes/lnd/alice/data/chain/bitcoin/regtest/admin.macaroon`
-  2. bob: `~/.polar/networks/1/volumes/lnd/bob/data/chain/bitcoin/regtest/admin.macaroon`
-  3. carol: `~/.polar/networks/1/volumes/lnd/carol/data/chain/bitcoin/regtest/admin.macaroon`
+  1. alice: `<path-to-create-ln-app-dir>/backend/docker/compose/create-ln-app-0/volumes/lnd/alice/data/chain/bitcoin/regtest/admin.macaroon`
+  2. bob: `<path-to-create-ln-app-dir>/backend/docker/compose/create-ln-app-0/volumes/lnd/bob/data/chain/bitcoin/regtest/admin.macaroon`
+  3. carol: `<path-to-create-ln-app-dir>/backend/docker/compose/create-ln-app-0/volumes/lnd/carol/data/chain/bitcoin/regtest/admin.macaroon`
+- LND REST API Docs: [click here](https://api.lightning.community/#lnd-rest-api-reference)
 
-- LND REST API Docs: https://api.lightning.community/#lnd-rest-api-reference
+#### bitcoind
 - Bitcoind REST API Endpoint: http://127.0.0.1:18444/rest
-- Bitcoind REST API Docs: https://github.com/bitcoin/bitcoin/blob/master/doc/REST-interface.md
+- Bitcoind REST API Docs: [click here](https://github.com/bitcoin/bitcoin/blob/master/doc/REST-interface.md)
