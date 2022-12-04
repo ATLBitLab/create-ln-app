@@ -68,17 +68,39 @@ I prefer `n` over `nvm` because it seems to run faster.
 - [nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
 ## Useful Information
-Once the `npm start` command is executed, you'll see a `.env` file in the `frontend` folder that should have all the env variables that you need to run that app. In the event that fails, find the relevant info below.
+Once the `npm start` command is executed, you'll see a new `.env` file placed at `frontend/js/.env` and `frontend/ts/.env` as well as `frontend/js/src/.env.js` and `frontend/ts/src/.env.js`. Both will have all the env variables that you need to run the example app providing you options for how you want to access env vars (i.e. `process.env` vs `import { ... } from ../.env`). In the event that fails, find the relevant info below.
 
+#### LND
 - LND REST Endpoints: you will need these urls to make REST calls to your LND nodes on polar.
   1. alice: `https://127.0.0.1:8081/v1`
   2. bob: `https://127.0.0.1:8082/v1`
   3. carol: `https://127.0.0.1:8083/v1`
 - Admin Macaroons: you will need these in hex format to authenticate REST calls to your LND nodes on polar.
+<<<<<<< HEAD
   1. alice: `./backend/docker/compose/volumes/lnd/alice/data/chain/bitcoin/regtest/admin.macaroon`
   2. bob: `./backend/docker/compose/volumes/lnd/bob/data/chain/bitcoin/regtest/admin.macaroon`
   3. carol: `./backend/docker/compose/volumes/lnd/carol/data/chain/bitcoin/regtest/admin.macaroon`
+=======
+  1. alice: `<path-to-repo-dir>/backend/docker/compose/create-ln-app-0/volumes/lnd/alice/data/chain/bitcoin/regtest/admin.macaroon`
+  2. bob: `<path-to-repo-dir>/backend/docker/compose/create-ln-app-0/volumes/lnd/bob/data/chain/bitcoin/regtest/admin.macaroon`
+  3. carol: `<path-to-repo-dir>/backend/docker/compose/create-ln-app-0/volumes/lnd/carol/data/chain/bitcoin/regtest/admin.macaroon`
+- To get the `admin.macaroon` in hex format, use the following command:
+```sh
+cd backend/docker/compose/create-ln-app-0/volumes/lnd/alice/data/chain/bitcoin/regtest
+xxd -ps -u -c 1000 admin.macaroon
+```
+Mac users can copy to clipboard with the following command:
+```sh
+cd backend/docker/compose/create-ln-app-0/volumes/lnd/alice/data/chain/bitcoin/regtest
+xxd -ps -u -c 1000 admin.macaroon | pbcopy
+```
+- Alternatively, you can run the following command inside either `frontend/js` or `frontend/ts` to output each `admin.macaroon` in hex format:
+```sh
+npm run env:hex-macaroons
+```
+- LND REST API Docs: [click here](https://api.lightning.community/#lnd-rest-api-reference)
+>>>>>>> 8a6b3fd05785acc66609965efaf8f0d144b5cc63
 
-- LND REST API Docs: https://api.lightning.community/#lnd-rest-api-reference
-- Bitcoind REST API Endpoint: `http://127.0.0.1:18444/rest`
-- Bitcoind REST API Docs: https://github.com/bitcoin/bitcoin/blob/master/doc/REST-interface.md`
+#### bitcoind
+- Bitcoind REST API Endpoint: http://127.0.0.1:18444/rest
+- Bitcoind REST API Docs: [click here](https://github.com/bitcoin/bitcoin/blob/master/doc/REST-interface.md)
