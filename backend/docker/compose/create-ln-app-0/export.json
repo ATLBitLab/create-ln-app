@@ -1,0 +1,173 @@
+{
+  "network": {
+    "id": 2,
+    "name": "test",
+    "status": 3,
+    "path": "/Users/hu5ky5n0w/.polar/networks/2",
+    "nodes": {
+      "bitcoin": [
+        {
+          "id": 0,
+          "networkId": 2,
+          "name": "backend1",
+          "type": "bitcoin",
+          "implementation": "bitcoind",
+          "version": "23.0",
+          "peers": [],
+          "status": 3,
+          "ports": {
+            "rpc": 18443,
+            "p2p": 19444,
+            "zmqBlock": 28334,
+            "zmqTx": 29335
+          },
+          "docker": {
+            "image": "",
+            "command": ""
+          }
+        }
+      ],
+      "lightning": [
+        {
+          "id": 0,
+          "networkId": 2,
+          "name": "alice",
+          "type": "lightning",
+          "implementation": "LND",
+          "version": "0.15.4-beta",
+          "status": 3,
+          "backendName": "backend1",
+          "paths": {
+            "tlsCert": "/Users/hu5ky5n0w/.polar/networks/2/volumes/lnd/alice/tls.cert",
+            "adminMacaroon": "/Users/hu5ky5n0w/.polar/networks/2/volumes/lnd/alice/data/chain/bitcoin/regtest/admin.macaroon",
+            "invoiceMacaroon": "/Users/hu5ky5n0w/.polar/networks/2/volumes/lnd/alice/data/chain/bitcoin/regtest/invoice.macaroon",
+            "readonlyMacaroon": "/Users/hu5ky5n0w/.polar/networks/2/volumes/lnd/alice/data/chain/bitcoin/regtest/readonly.macaroon"
+          },
+          "ports": {
+            "rest": 8081,
+            "grpc": 10001,
+            "p2p": 9735
+          },
+          "docker": {
+            "image": "polarlightning/lnd:0.15.5-beta.rc1",
+            "command": "lnd\n  --restcors=*\n  --noseedbackup\n  --trickledelay=5000\n  --alias={{name}}\n  --externalip={{name}}\n  --tlsextradomain={{name}}\n  --tlsextradomain={{containerName}}\n  --listen=0.0.0.0:9735\n  --rpclisten=0.0.0.0:10009\n  --restlisten=0.0.0.0:8080\n  --bitcoin.active\n  --bitcoin.regtest\n  --bitcoin.node=bitcoind\n  --bitcoind.rpchost={{backendName}}\n  --bitcoind.rpcuser={{rpcUser}}\n  --bitcoind.rpcpass={{rpcPass}}\n  --bitcoind.zmqpubrawblock=tcp://{{backendName}}:28334\n  --bitcoind.zmqpubrawtx=tcp://{{backendName}}:28335"
+          }
+        }
+      ]
+    }
+  },
+  "chart": {
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "nodes": {
+      "backend1": {
+        "id": "backend1",
+        "type": "bitcoin",
+        "position": {
+          "x": 200,
+          "y": 400
+        },
+        "ports": {
+          "backend": {
+            "id": "backend",
+            "type": "top",
+            "position": {
+              "x": 100,
+              "y": 0
+            }
+          },
+          "peer-left": {
+            "id": "peer-left",
+            "type": "left",
+            "position": {
+              "x": 0,
+              "y": 21
+            }
+          },
+          "peer-right": {
+            "id": "peer-right",
+            "type": "right",
+            "position": {
+              "x": 200,
+              "y": 21
+            }
+          }
+        },
+        "size": {
+          "width": 200,
+          "height": 42
+        },
+        "properties": {
+          "status": 3,
+          "icon": "./static/media/bitcoin.c9f33461.svg"
+        }
+      },
+      "alice": {
+        "id": "alice",
+        "type": "lightning",
+        "position": {
+          "x": 50,
+          "y": 100
+        },
+        "ports": {
+          "empty-left": {
+            "id": "empty-left",
+            "type": "left",
+            "position": {
+              "x": 0,
+              "y": 21
+            }
+          },
+          "empty-right": {
+            "id": "empty-right",
+            "type": "right",
+            "position": {
+              "x": 200,
+              "y": 21
+            }
+          },
+          "backend": {
+            "id": "backend",
+            "type": "bottom",
+            "position": {
+              "x": 100,
+              "y": 42
+            }
+          }
+        },
+        "size": {
+          "width": 200,
+          "height": 42
+        },
+        "properties": {
+          "status": 3,
+          "icon": "./static/media/lnd.095d2fef.png"
+        }
+      }
+    },
+    "links": {
+      "alice-backend1": {
+        "id": "alice-backend1",
+        "from": {
+          "nodeId": "alice",
+          "portId": "backend"
+        },
+        "to": {
+          "nodeId": "backend1",
+          "portId": "backend"
+        },
+        "properties": {
+          "type": "backend"
+        }
+      }
+    },
+    "selected": {
+      "type": "node",
+      "id": "alice"
+    },
+    "hovered": {},
+    "scale": 1
+  }
+}

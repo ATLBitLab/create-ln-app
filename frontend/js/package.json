@@ -14,9 +14,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "npm run env && REACT_APP_ENV=local react-scripts start",
-    "https": "npm run env && export HTTPS=true&&SSL_CRT_FILE=localhost+2.pem&&SSL_KEY_FILE=localhost+2-key.pem REACT_APP_ENV=local react-scripts start",
-    "env": "node ../../scripts/setup.env.js",
+    "start": "REACT_APP_ENV=local react-scripts start",
+    "https": "export HTTPS=true&&SSL_CRT_FILE=localhost+2.pem&&SSL_KEY_FILE=localhost+2-key.pem REACT_APP_ENV=local react-scripts start",
+    "start:env": "npm run env:setup && REACT_APP_ENV=local react-scripts start",
+    "https:env": "npm run env:setup && export HTTPS=true&&SSL_CRT_FILE=localhost+2.pem&&SSL_KEY_FILE=localhost+2-key.pem REACT_APP_ENV=local react-scripts start",
+    "env:setup": "node ../../scripts/setup.env.js",
+    "env:macaroons": "sh ../../scripts/admin.macaroon.sh",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -15,9 +15,9 @@ const node2 = path.join(lndDir, nodes[2]),
 const networkInfo = {
     network: {
         id: 1,
-        name: 'create-ln-app',
+        name: 'create-ln-app-cors',
         status: 3,
-        path: `${__dirname}/0`,
+        path: __dirname,
         nodes: {
             bitcoin: [
                 {
@@ -233,5 +233,7 @@ const networkInfo = {
         scale: 1,
     },
 };
+
+console.log(networkInfo)
 
 module.exports = { networkInfo };

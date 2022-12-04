@@ -30,7 +30,9 @@ export class LightningStore {
                     'Grpc-Metadata-macaroon': node.macaroon,
                 },
             });
-            return response.data;
+            const alias = response.data.alias;
+            const uris = response.data.uris;
+            return { alias, uris };
         } catch (error) {
             console.log('error', error);
         }
@@ -49,8 +51,25 @@ export class LightningStore {
         }
     }
 
-    async connect() {
-        console.log('Open Channel');
+    async connect(node) {
+        try {
+            const response = await axios.post(
+                `${node.url}/v1/peers`,
+                {
+                    addr: '<lnrpcLightningAddress>',
+                    perm: '<boolean>',
+                    timeout: '<string>',
+                },
+                {
+                    headers: {
+                        'Grpc-Metadata-macaroon': node.macaroon,
+                    },
+                }
+            );
+            return response.data.peers;
+        } catch (error) {
+            console.log('error', error);
+        }
     }
 
     async openChannel(pubkey, amount) {
