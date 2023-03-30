@@ -98,3 +98,6 @@ npm run env:hex-macaroons
 #### bitcoind
 - Bitcoind REST API Endpoint: http://127.0.0.1:18444/rest
 - Bitcoind REST API Docs: [click here](https://github.com/bitcoin/bitcoin/blob/master/doc/REST-interface.md)
+
+
+a;alsdgkhjas;dlg
