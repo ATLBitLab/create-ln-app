@@ -8,8 +8,11 @@
     "lnd:macaroons": "",
     "install:all": "npm install && npm run install:frontend",
     "install:frontend": "cd frontend && npm install && cd ..",
+    "watch:env": "node ./scripts/setup.env.js",
     "watch:frontend": "cd frontend && npm start",
     "watch:backend": "cd backend/docker/compose && docker-compose up",
+    "env:lnd:urls": "# TODO",
+    "env:lnd:macaroons": "# TODO",
     "start:backend:polar": "open -a Polar",
     "start:backend:compose": "cd backend/docker/compose && docker-compose up",
     "start:backend:export": "cd backend/docker/export && unzip && docker-compose up"
@@ -18,6 +21,8 @@
     "concurrently": "^7.5.0"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
+    "node-fetch": "^3.2.10",
     "styled-components": "^5.3.6"
   }
 }

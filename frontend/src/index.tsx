@@ -8,14 +8,11 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-const REST_ENDPOINT = 'REPLACE ME WITH REST_ENDPOINT';
-const ADMIN_MACAROON = 'REPLACE ME WITH ADMIN MAC';
-
 const AppWithProviders = () => {
   const [ lightningStore ] = useState<LightningStore>(new LightningStore());
 
   useEffect(() => {
-    lightningStore.initialize(REST_ENDPOINT, ADMIN_MACAROON);
+    lightningStore.initialize("", "");
   }, [lightningStore]);
 
   return (
