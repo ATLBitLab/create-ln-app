@@ -1,4 +1,4 @@
-# Create LN App
+# [Create LN App](https://github.com/ATLBitLab/create-ln-app/)
 Built with ❤️ ☕️ & ₿ in ATL by the [ATL BitLab](https://atlbitlab.com/) team. This is an open-source
 effort. Feel free to steal like an artist to make your life eaier. If you find issues, pls submit them
 to the repo. If you're feelin' froggy 🐸 and want a feature now, feel free to fork, build and submit a PR.
